@@ -36,7 +36,7 @@ $factory->define(cultiva\User::class, function (Faker\Generator $faker) {
         'state_id' => cultiva\States::all()->random()->id,
         'municipalities_id' => cultiva\Municipalities::all()->random()->id,
         'typeuser' => '1',
-        'password' => bcrypt(str_random(10)),
+        'password' => (str_random(10)),
         'remember_token' => str_random(10),
     ];
 });

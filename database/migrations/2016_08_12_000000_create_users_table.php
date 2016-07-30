@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('secondlastname', 45);
             $table->string('email', 50)->unique();
             $table->char('celphone', 20)->nullable();
-            $table->string('password', 60);
+            $table->string('password');
             $table->string('status', 10)->nullable();
             $table->string('pathperfil')->nullable();
             //Claves foranea referencia al modelo roles

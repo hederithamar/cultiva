@@ -5,12 +5,11 @@ namespace cultiva\Http\Controllers;
 use Illuminate\Http\Request;
 
 use cultiva\Http\Requests;
-use cultiva\Http\Controllers\Controller;
 use cultiva\Http\Requests\LoginRequest;
+use Illuminate\Routing\Controller;
 use Auth;
 use Session;
 use Redirect;
-
 
 class LogController extends Controller
 {
@@ -40,20 +39,20 @@ class LogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-public function store(LoginRequest $request)
+    public function store(LoginRequest $request)
     {
         
-        if(Auth::attempt(['email'=>$request['email'], 'password'=>$request['password']])){
+        if(Auth::attempt(['email'=>$request->email, 'password'=>$request->password])){
             return Redirect::to('admin');
         }
-        Session::flash('message-error','Datos son incorrectos');
+        Session::flash('message-success','Datos correctos');
         return Redirect::to('admin');
     }
-
     public function logout(){
         Auth::logout();
         return Redirect::to('/');
     }
+
     /**
      * Display the specified resource.
      *
