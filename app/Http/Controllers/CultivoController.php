@@ -77,14 +77,16 @@ class CultivoController extends Controller
     {  
         
         $terreno = Ground::find($terreno);
-        $semilla=Seed::find($semilla);
+        $semilla1=Seed::find($semilla);
+        //dd($semilla);
         $active = new activeFarm();        
-        $date=$dt = Carbon::create(2012, 1, 31, 0);
+        $date= Carbon::now();
         $active->dateInit= $date;
-        $active->dateEnd= $date-> addDays($semilla->gestation);
-        $active->seed_id=$semilla;
+        $active->dateEnd= $date-> addDays($semilla1->gestation);
+        $active->seed_id=$semilla1->id;
         $active->status="Iniciando";
         $active->save();
+        //dd($active);
         $terreno->status="Ocupado";
         $terreno->activeFarm_id=$active->id;
         $terreno->save();

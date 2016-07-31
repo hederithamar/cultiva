@@ -2201,7 +2201,7 @@ body:not(.menubar-first) .menubar-fixed-panel {
 }
 section {
   position: relative;
-  padding: 12px;
+  padding: 7px;
 }
 section:first-child {
   padding-top: 0;

@@ -18,6 +18,7 @@ use cultiva\Seed;
 use cultiva\Ground;
 use cultiva\States;
 use DB;
+use Carbon\Carbon;
 
 
 class FrontController extends Controller
@@ -36,18 +37,18 @@ class FrontController extends Controller
     public function index()
     {
         $activeFarms = DB::table('active_farms')->where('status','!=','Terminado')->get();
-        $state = States::all()->last();
-         $terrenos= DB::table('active_farms')
-            ->rightjoin('grounds', 'active_farms.id', '=', 'grounds.activeFarm_id')
-            ->rightjoin('seeds', 'active_farms.seed_id', '=', 'seeds.id')
-            ->get();
-            
-            $terrenos= DB::table('seeds')
-            ->rightjoin('active_farms', 'seeds.id', '=', 'active_farms.seed_id')
+
+        //dd($activeFarms);
+        /* $terrenos= DB::table('active_farms')
             ->leftjoin('grounds', 'active_farms.id', '=', 'grounds.activeFarm_id')
+            ->leftjoin('seeds', 'active_farms.seed_id', '=', 'seeds.id')
+            ->get();*/
+            $terrenos= DB::table('grounds')
+            ->join('active_farms', 'grounds.activeFarm_id', '=', 'active_farms.id')
+            ->join('seeds', 'seeds.id', '=', 'active_farms.seed_id')
             ->get();
-        
-        return view('admin.index',compact('state'));
+        //dd($terrenos);
+        return view('admin.index', compact('terrenos'));
     }
 
     /**

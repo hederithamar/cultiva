@@ -34,7 +34,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <input type="text" name="name" class="name active" placeholder="Ingresa tu nombre" required="">
                                     <input type="text" name="email" class="email" placeholder="Email" required="">
                                     <input type="text" name="Phone" class="phone" placeholder="Phone" required="">
-                                    <input type="password" name="Password" class="password" placeholder="Password" required="">     
+                                    <input type="password" name="password" class="password" placeholder="Password" required="">     
                                     <input type="checkbox" id="brand1" value="">
                                     <label for="brand1"><span></span> Remember me</label>
                                     <div class="login-bottom">
@@ -50,7 +50,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <div class="clear"></div>
                                 </div>  
                                 
-                        {!!Form::close()!!}        
+                {!!Form::close()!!}        
                             </div>
             </div>
           </div>
@@ -86,7 +86,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </div>
                             <div class="social-icons">
                             <ul> 
-                                <li><a href="#"><span class="icons"></span><span class="text">Facebook</span></a></li>
+                                <li><a href="facebook/login"><span class="icons"></span><span class="text">Facebook</span></a></li>
                                 <li class="twt"><a href="#"><span class="icons"></span><span class="text">Twitter</span></a></li>
                                 <li class="ggp"><a href="#"><span class="icons"></span><span class="text">Google+</span></a></li>
                                 
