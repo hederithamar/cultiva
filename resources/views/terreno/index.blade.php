@@ -1,14 +1,10 @@
 @extends('layouts.admin')
 
   <!--libreria para manipular los acordeones -->
-  {!!Html::style('css/normalize.css')!!}
-  {!!Html::style('css/demo.css')!!}
-  {!!Html::style('css/filtergrid.css')!!}
-  {!!Html::style('css/jquery-ui.css')!!}
-  {!!Html::style('css/demo.css')!!}
   {!!Html::script('js/jquery-1.11.1.min.js')!!}
-  {!!Html::script('js/accordion.js')!!}
-  {!!Html::style('css/jquery.dataTables.css')!!}
+  {!!Html::script('js/jquery-1.11.1.min.js')!!}
+  {!! Html::script('js/jquery.popup.js')!!}
+  {!! Html::style('css/popup.css')!!}
 
   @section('content')
   <section>
@@ -48,7 +44,18 @@
                         </li>
                       </ul>
                     </div>
-                  </div><!--//fin boton float-->    
+                  </div><!--//fin boton float-->   
+                  <div class="row">
+                      <div class="col-md-12">
+                        <div class="card-body">
+                          <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                            {!!link_to_route('terreno.totalterrenos', $title = 'Tus Espacios',null, $attributes = ['class'=>'informe btn btn-default-bright','data-toggle'=>'tooltip','data-placement'=>'top','data-original-title'=>'Ver Reporte'])!!}
+                            {!!link_to_route('terreno.cosechaactual', $title = 'Cosecha Actual',null, $attributes = ['class'=>'informe btn btn-default-bright','data-toggle'=>'tooltip','data-placement'=>'top','data-original-title'=>'Ver Reporte'])!!}
+                            {!!link_to_route('terreno.historialcosecha', $title = 'Historial de Cosechas',null, $attributes = ['class'=>'informe btn btn-default-bright','data-toggle'=>'tooltip','data-placement'=>'top','data-original-title'=>'Ver Reporte'])!!}
+                          </div><!--end .btn-group -->
+                        </div><!--end .card-body -->
+                      </div><!--end .col -->
+                    </div> 
                   <br>
                   <div id="table" class="table-editable">
                     <div class="forms">
@@ -65,7 +72,7 @@
                                   <header>Terreno {{$dato->status}}</header>
                                   <div class="tools">
                                   {!!link_to_route('cultivo.vinc', $title = '', $parameters = $dato->id, $attributes = ['class'=>'btn btn-icon-toggle md md-add','data-toggle'=>'tooltip','data-placement'=>'top','data-original-title'=>'Vincular un cultivo'])!!}
-                                  {!!link_to_route('terreno.edit', $title = '', $parameters = $dato, $attributes = ['class'=>'btn btn-icon-toggle fa fa-pencil','data-toggle'=>'tooltip','data-placement'=>'top','data-original-title'=>'Editar Empresa'])!!}
+                                  {!!link_to_route('terreno.edit', $title = '', $parameters = $dato, $attributes = ['class'=>'btn btn-icon-toggle fa fa-pencil','data-toggle'=>'tooltip','data-placement'=>'top','data-original-title'=>'Editar Terreno'])!!}
                                 
                                   </div>
                                 </div><!--end .card-head -->
@@ -85,13 +92,7 @@
                           </tbody>
                         </table>
                       </div>
-                      {!!Html::script('js/jquery.dataTables.js')!!}
                       
-                      <script type="text/javascript">
-                      $(document).ready(function(){
-                        $('#table1').DataTable();
-                      });
-                      </script>
                     </div>
                   </div>
                   
@@ -105,5 +106,21 @@
       </div>
     </div>
   </section>
+<script>
+    $(function(){
 
+      $('.informe').popup({
+      types : {
+        youtube : function(content, callback){
+          content = '<iframe width="420" height="315" src="'+content+'" frameborder="0" allowfullscreen></iframe>';
+      // Don't forget to call the callback!
+        callback.call(this, content);
+        }
+    },
+      width :1070,
+    height : 480
+    });
+
+    });
+  </script>
 @endsection

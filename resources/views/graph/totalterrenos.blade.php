@@ -70,17 +70,17 @@ $(function () {
             type: 'column'
         },
         title: {
-            text: 'Programa de Construcción y Modernización de Carreteras',
+            text: 'Cultiva',
             x: -20 //center
         },
         subtitle: {
-            text: 'Dirección General Adjunta de Construcción y Modernización',
+            text: 'Usted tiene estas terrenos sembrados',
             x: -20
         },
         yAxis: {
             allowDecimals: false,
             title: {
-                text: 'MDP'
+                text: 'm²'
             },
             plotLines: [{
                 value: 0,
@@ -91,7 +91,7 @@ $(function () {
         tooltip: {
             formatter: function () {
                 return '<b>' + this.series.name + '</b><br/>' +
-                    this.point.y + ' MDP ' + this.point.name.toLowerCase();
+                    this.point.y + ' m² ' + this.point.name.toLowerCase();
             }
         }
     });
@@ -104,7 +104,7 @@ $(function () {
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
 <div id="container" style="min-width: 1070px; height: 480px; margin: 0 auto"></div>
-<div clas="" style="display:none;">
+<div clas="" >
     
 <div class="col-lg-12">
                         <div class="table-responsive">
@@ -112,18 +112,19 @@ $(function () {
 
                                 <thead>
                                     <tr>
-                                        <th class="sort-alpha">Carretera</th>
-                                        <th class="sort-numeric">PEF 2016</th>
-                                        <th class="sort-numeric">Autorizado Modificado</th>
+                                        <th class="sort-alpha">Descripcion</th>
+                                        <th class="sort-alpha">Terreno No.</th>
+                                        <th class="sort-numeric">Tamaño del terreno</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($generalasignaciones as $dato)
+
+                                @foreach($datos as $dato)
                                     <tr class="gradeX">
-                                    
-                                      <td >{{$dato->carretera}}</td>
-                                      <td >{{$dato->pef_2016_mdp}}</td>
-                                      <td >{{$dato->autorizado_modificado_mdp}}</td>
+                                    <td >{{$dato->description}}</td>
+                                        <td >{{$dato->id}}</td>
+                                        <td >{{$dato->size}}</td>
+                                        
                                     </tr>
                                     @endforeach
                                 </tbody>

@@ -14,6 +14,8 @@
     </div>
     
     @include('alerts.success')
+    <!-- www.TuTiempo.net - Ancho:454px - Alto:91px -->
+
     <div class="row">
     	<div class="card card-bordered style-success">
        

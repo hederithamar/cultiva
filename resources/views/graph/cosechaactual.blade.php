@@ -62,7 +62,7 @@
 <script type="text/javascript">
 $(function () {
     $('#container').highcharts({
-        colors: ["#2b908f", "#7798BF" , "#B45F04", "#6E6E6E"],
+        colors: ["#f45b5b", "#7798BF"],
         data: {
             table: 'datatable'
         },
@@ -70,11 +70,11 @@ $(function () {
             type: 'column'
         },
         title: {
-            text: 'Programa de Construcción y Modernización de Carreteras',
+            text: 'Cultiva',
             x: -20 //center
         },
         subtitle: {
-            text: 'Dirección General Adjunta de Construcción y Modernización',
+            text: 'Tus cosechas Actuales',
             x: -20
         },
         yAxis: {
@@ -113,21 +113,17 @@ $(function () {
                                 <thead>
                                     <tr>
                                         <th class="sort-alpha">Carretera</th>
-                                        <th class="sort-numeric">Autorizado Modificado</th>
-                                        <th class="sort-numeric">Calendario Acumulado al Mes</th>
-                                        <th class="sort-numeric">Total Ejercido</th>
-                                        <th class="sort-numeric">Saldo (Calendario vs Ejercido)</th>
+                                        <th class="sort-numeric">Contratado Total</th>
+                                        <th class="sort-numeric">Contratado al Mes</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($estadocortemes as $dato)
+                                @foreach($datos as $dato)
                                     <tr class="gradeX">
                                     
-                                      <td >{{$dato->carretera}}</td>
-                                      <td >{{$dato->autorizado_modificado_mdp}}</td>
-                                      <td >{{$dato->calendario_acumulado_mes_mdp}}</td>
-                                      <td >{{$dato->total}}</td>
-                                      <td >{{$dato->saldo_calendario_vs_ejercido}}</td>
+                                      <td >{{$dato->location}}</td>
+                                      <td >{{$dato->size}}</td>
+                                      <td >{{$dato->id}}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

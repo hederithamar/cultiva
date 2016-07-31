@@ -104,4 +104,23 @@ class TerrenoController extends Controller
     {
         //
     }
+
+    public function totalterrenos()
+    {
+        $datos = Ground::all();
+        return view('graph.totalterrenos', compact('datos'));
+    }
+    
+    public function cosechaactual()
+    {
+        $datos = Ground::all();
+        return view('graph.cosechaactual', compact('datos'));
+    }
+
+    public function historialcosecha()
+    {
+        $datos = Ground::all();
+        return view('graph.historialcosecha', compact('datos'));
+    }
+
 }

@@ -62,7 +62,7 @@
 <script type="text/javascript">
 $(function () {
     $('#container').highcharts({
-        colors: ["#f45b5b", "#7798BF"],
+        colors: ["#2b908f", "#7798BF" , "#B45F04", "#6E6E6E"],
         data: {
             table: 'datatable'
         },
@@ -113,17 +113,21 @@ $(function () {
                                 <thead>
                                     <tr>
                                         <th class="sort-alpha">Carretera</th>
-                                        <th class="sort-numeric">Contratado Total</th>
-                                        <th class="sort-numeric">Contratado al Mes</th>
+                                        <th class="sort-numeric">Autorizado Modificado</th>
+                                        <th class="sort-numeric">Calendario Acumulado al Mes</th>
+                                        <th class="sort-numeric">Total Ejercido</th>
+                                        <th class="sort-numeric">Saldo (Calendario vs Ejercido)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($estadocontratado as $dato)
+                                @foreach($datos as $dato)
                                     <tr class="gradeX">
                                     
                                       <td >{{$dato->carretera}}</td>
-                                      <td >{{$dato->contratado_total_mdp}}</td>
-                                      <td >{{$dato->contratado_a_mes_mdp}}</td>
+                                      <td >{{$dato->autorizado_modificado_mdp}}</td>
+                                      <td >{{$dato->calendario_acumulado_mes_mdp}}</td>
+                                      <td >{{$dato->total}}</td>
+                                      <td >{{$dato->saldo_calendario_vs_ejercido}}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

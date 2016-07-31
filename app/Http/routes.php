@@ -101,3 +101,6 @@ Route::resource('indexSeeds','SeedController');
 
 Route::get('createSeeds/{id}', ['as' => 'create.seeds', 'uses' => 'SeedController@create']);
 
+Route::get('admin/Graficas/TotalTerrenos/', ['as' => 'terreno.totalterrenos', 'uses' => 'TerrenoController@totalterrenos']);
+Route::get('admin/Graficas/CosechaActual/', ['as' => 'terreno.cosechaactual', 'uses' => 'TerrenoController@cosechaactual']);
+Route::get('admin/Graficas/HistorialCosecha/', ['as' => 'terreno.historialcosecha', 'uses' => 'TerrenoController@historialcosecha']);
