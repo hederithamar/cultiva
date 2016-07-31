@@ -15,7 +15,18 @@
     
     @include('alerts.success')
     <!-- www.TuTiempo.net - Ancho:454px - Alto:91px -->
+<?php
 
+  $json_string = file_get_contents("http://api.wunderground.com/api/77fc50dcdc344457/geolookup/conditions/alerts/currenthurricane/forecast//yesterday/q/MX/".$state->namestate.".json");
+  $parsed_json = json_decode($json_string);
+  $full = $parsed_json->{'current_observation'}->{'observation_location'}->{'full'};
+  $history = $parsed_json->{'current_observation'}->{'observation_time'};
+  $location = $parsed_json->{'location'}->{'city'};
+  $temp_f = $parsed_json->{'current_observation'}->{'temp_f'};
+  echo "Current temperature in ${location} is: ${temp_f}\n";
+  $airport = $parsed_json->{'current_observation'}->{'icon_url'};
+  echo " in ${airport} full: ${full} history : ${history}"
+?>
     <div class="row">
     	<div class="card card-bordered style-success">
        

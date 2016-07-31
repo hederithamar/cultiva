@@ -10,7 +10,10 @@
         "laravel/framework": "5.1.*",
         "laravelcollective/html": "5.1.*",
         "yajra/laravel-datatables-oracle": "^6.10",
-        "sammyk/laravel-facebook-sdk": "^3.0"
+        "sammyk/laravel-facebook-sdk": "^3.0",
+        "adamwathan/eloquent-oauth-l5": "0.1.*",
+        "nesbot/carbon": "^1.21"
+
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

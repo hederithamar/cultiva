@@ -90,12 +90,13 @@ Route::resource('admin','FrontController');
 Route::resource('/','IndexController');
 Route::resource('usuario','UsuarioController');
 Route::resource('log','LogController');
+
 Route::resource('terreno','TerrenoController');
 Route::resource('cultivo','CultivoController');
 Route::get('terreno/vincular/cultivo/{id}', ['as' => 'cultivo.vinc', 'uses' => 'CultivoController@vincular']);
+Route::get('terreno/vincular/asigna/{semilla}/{terreno}', ['as' => 'cultivo.asigna', 'uses' => 'CultivoController@asigna']);
 
 Route::get('importMunicipality','ExcelController@importMunnicipalities');
-
 
 Route::resource('indexSeeds','SeedController');
 
@@ -104,3 +105,4 @@ Route::get('createSeeds/{id}', ['as' => 'create.seeds', 'uses' => 'SeedControlle
 Route::get('admin/Graficas/TotalTerrenos/', ['as' => 'terreno.totalterrenos', 'uses' => 'TerrenoController@totalterrenos']);
 Route::get('admin/Graficas/CosechaActual/', ['as' => 'terreno.cosechaactual', 'uses' => 'TerrenoController@cosechaactual']);
 Route::get('admin/Graficas/HistorialCosecha/', ['as' => 'terreno.historialcosecha', 'uses' => 'TerrenoController@historialcosecha']);
+

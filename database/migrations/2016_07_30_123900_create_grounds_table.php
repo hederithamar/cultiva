@@ -23,7 +23,8 @@ class CreateGroundsTable extends Migration
             //Claves foranea referencia al modelo roles
             $table->integer('user_id');
             //Claves foranea referencia al modelo estados
-            $table->string('culture_id');
+            $table->string('culture_id');//Referencia a Semilla preferida
+            $table->integer('activeFarm_id');
             //$table->foreign('culture_id')->references('id')->on('cultures');
             //Datos adicionales para control de datos
             $table->rememberToken();

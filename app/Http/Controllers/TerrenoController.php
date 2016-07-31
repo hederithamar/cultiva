@@ -8,10 +8,12 @@ use cultiva\Http\Requests;
 use cultiva\Http\Controllers\Controller;
 use cultiva\Ground;
 use cultiva\States;
+use cultiva\Seed;
 use Session;
 use Redirect;
 use Log;
 use Illuminate\Routing\Route;
+use DB;
 use Yajra\Datatables\Facades\Datatables;
 class TerrenoController extends Controller
 {
@@ -41,7 +43,11 @@ class TerrenoController extends Controller
     public function create()
     {
         $estados = States::lists('namestate', 'namestate');
-        return view('terreno.create',compact('estados'));
+        //$tipo= Seed::lists('id_general','id')->distint();
+        //$tipo = Seed::table('lists')->distinct()->lists('type');
+        $tipo = DB::table('seeds')->distinct()->lists('id_general','id_general');
+
+        return view('terreno.create',compact('estados','tipo'));
     }
 
     /**
@@ -78,7 +84,8 @@ class TerrenoController extends Controller
     public function edit($id)
     {
          $estados = States::lists('namestate', 'namestate');
-         return view('terreno.edit',compact('estados'),['ground'=>$this->ground]);
+        $tipo = DB::table('seeds')->distinct()->lists('id_general');
+         return view('terreno.edit',compact('estados','tipo'),['ground'=>$this->ground]);
         
     }
 
